@@ -5,63 +5,10 @@ const epopup = document.getElementById("editpopup")
 
 
 
-function getTodayDate() {
-    const today = new Date();
-    return today.toISOString().split('T')[0]; // Extract the date part
-}
 
-// Function to initialize or update the streak
-function updateStreak() {
-    const lastLogin = localStorage.getItem('lastLoginDate');
-    const today = getTodayDate();
-    
-    if (lastLogin === today) {
-        alert("You already completed today's task!");
-        return;
-    }
-
-    let streak = parseInt(localStorage.getItem('streak')) || 0;
-
-    if (lastLogin) {
-        const lastLoginDate = new Date(lastLogin);
-        const differenceInDays = Math.floor((new Date(today) - lastLoginDate) / (1000 * 60 * 60 * 24));
-        
-        if (differenceInDays === 1) {
-            // Increment streak if it's the next day
-            streak += 1;
-        } else if (differenceInDays > 1) {
-            // Reset streak if more than one day has passed
-            streak = 1;
-        }
-    } else {
-        // First time login
-        streak = 1;
-    }
-
-    // Update streak in localStorage
-    localStorage.setItem('streak', streak);
-    localStorage.setItem('lastLoginDate', today);
-
-    // Update the display
-    displayStreak();
-    alert(`Streak updated! Current streak: ${streak} days.`);
-}
-
-// Function to display the current streak on page load
-function displayStreak() {
-    const streak = localStorage.getItem('streak') || 0;
-    
-    // Add Font Awesome icon with class "fa-fire"
-    document.getElementById('streakDisplay').innerHTML = `
-        <i class="fas fa-fire"></i> 
-        <span class= "streaktext">Current streak <br></span> 
-        <span class ="streakdays">${streak} 
-        days</span>
-    `;
-}
 
 // Call the function to display streak on page load
-window.onload = displayStreak;
+
 
 function myFunction(event) {
     // Toggle popup visibility
