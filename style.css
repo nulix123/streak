@@ -1,0 +1,1056 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.streak-info {
+    font-size: 1.5rem;
+    padding: 1rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 37vw;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    text-align: left;
+}
+
+
+
+.fa-fire {
+    color: orange;
+    font-size: 3.5rem;
+    float: left;
+}
+
+.streakdays {
+    margin-left: 1rem;
+    font-family: "DynaPuff", system-ui;
+}
+
+.streaktext {
+    opacity: 0.6;
+    margin-left: 1rem;
+    font-family: "DynaPuff", system-ui;
+}
+
+
+
+.dynapuff-1 {
+  font-family: "DynaPuff", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.mainbox {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+.infobox {
+    width: 40vw;
+    height: 100vh;
+    border-left: solid;
+    border-right: solid;
+}
+
+.infopanel {
+    width: 20vw;
+    height: 100vh;
+
+}
+
+.habitbox {
+    width: 40vw;
+    height: 100vh;
+
+}
+
+
+.AllHabits , .MorningHabits, .EveningHabits, .AfternoonHabits ,.BadHabits {
+    width: 10vw;
+    height: 3rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    align-items: left;
+    align-items: center;
+    display: flex;
+    font-size: 1.25rem;
+    padding-left: 2.5rem;
+    margin-left: 1.25rem;
+    margin-top: 1rem;
+    
+}
+
+
+
+.fa-location-dot , .fa-mug-saucer ,.fa-sun ,.fa-moon ,.fa-circle-xmark {
+    padding-right: 1rem;
+}
+
+
+.newhabit  {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    font-size: 1.25rem;
+    padding: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    justify-content: center;      
+    align-items: center;
+}
+
+
+.habittype ,.deletehabit {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    font-size: 1.25rem;
+    padding: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    justify-content: center;      
+    align-items: center;
+}
+
+
+.habitsearch  {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    font-size: 1.25rem;
+    padding: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    justify-content: center;      
+    align-items: center;
+    width: 10vw;
+    text-align: left;
+}
+
+
+
+
+
+
+.habitbox {
+    margin-top: 1rem;
+    width: 55vw;
+    height: 5vh;    
+    align-items: center;
+}
+
+
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .popup .popuptext {
+    visibility: hidden;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    width: 25vw;
+    height: 50vh; 
+    background-color: #555;
+    color: #fff;
+    border-radius: 15px;
+    position: fixed;
+    z-index: 1;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+
+/* Optional: Update the popup arrow if necessary */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+  
+  /* Toggle this class when clicking on the popup container (hide and show the popup) */
+  .popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+  }
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+
+
+  
+  .blur-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3); /* Optional: Dark overlay with transparency */
+    visibility: hidden; /* Initially hidden */
+    opacity: 0; /* For smooth transition */
+    z-index: 0; /* Lower than the popup */
+    backdrop-filter: blur(8px); /* The blur effect */
+    transition: opacity 0.5s ease;
+}
+
+/* Show the blur when triggered */
+.blur-overlay.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+}
+
+.close-btn:hover {
+    color: red; /* Optional: Change color when hovering */
+}
+
+.linija {
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-left: 2rem;  
+}
+
+.linija2 {
+    padding-left: 2rem;
+    padding-top: 1rem;
+
+}
+
+.linija3 {
+    padding-top: 1rem;
+    padding-left: 2rem;
+
+}
+
+
+
+.linija4 {
+    background-color: chocolate;
+
+}
+
+.linija5 {
+    background-color: green;
+
+}
+
+
+
+.search {
+    border-radius: 8px;
+    height: 1rem;
+}
+
+.custom-dropdown {
+    border: 1px solid #ccc;
+    height: 3rem;
+    width: 3.5rem;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    margin-left: 1rem;
+    border-radius: 7px;
+}
+
+.selected-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.dropdown-item {
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.5rem;
+}
+
+.dropdown-item:last-child {
+    margin-right: 0;
+}
+
+.dropdown-item:hover {
+    background-color: #f0f0f0;
+}
+
+
+
+
+
+.linija1e {
+    display: flex;
+    margin-right: 2rem;
+    height: 3rem;
+}
+
+
+
+.linija3x {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search1 {
+    width: 3vw;
+    border-radius: 5px;
+}
+
+.laiks2, .kad123  {
+    border-radius: 5px;
+    margin-left: 1rem;
+}
+
+.linija4x {
+    display: flex;
+}
+
+.linija4xx {
+    display: flex;
+}
+
+
+.custom-combobox-container {
+    position: relative;
+    width: 100%;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.custom-combobox {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgb(199, 199, 199);
+    padding: 10px;
+}
+.custom-combobox input[type="text"] {
+    width: 95%;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
+.options-container {
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+    border: 1px solid rgb(204, 204, 204);
+    border-top: none;
+    display: none;
+    height: 150px;
+    overflow-y: scroll;
+}
+.options-container label {
+    display: block;
+    cursor: pointer;
+    padding: 5px;
+    margin-top: 5px;
+    user-select: none;
+}
+.options-container label:hover {
+    background: rgb(201, 201, 201);
+}
+.options-container::-webkit-scrollbar {
+    width: 3px;
+}
+.options-container::-webkit-scrollbar-thumb {
+    background-color: rgb(100, 100, 100);
+}
+
+.testhabit {
+    width: 40vw;
+    margin-top: 3rem;
+    border-radius: 10px;
+    height: 5vw;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    display: flex;
+    align-items: center;
+}
+
+.habitbox1 {
+    display: flex;
+    align-items: center;
+}
+
+.emojiicon {
+    width: 3vw;
+    height: 3vw;
+    margin-left: 1rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+}
+
+
+.habitname {
+    color: #000;
+    margin-bottom: 0.5rem;
+    margin-left: 2rem;
+    font-weight: bold;
+    text-align: left;
+    width: 23vw;
+    
+}
+
+.habittimes {
+    color: #000;
+    margin-left: 2rem;
+    font-weight: bold;
+    opacity: 0.7;
+
+}
+.habitkad {
+    color: #000;
+
+    padding-left: 1rem;
+    font-weight: bold;
+    opacity: 0.7;
+
+    width: 20vw;
+    text-align: left;
+}
+
+
+
+
+
+
+
+.fa-check {
+    margin-right: 0.5rem;
+}
+
+.setting {
+    background-color: #fff;
+    height: 4vh;
+    width: 2vw;
+    border-radius: 10px;
+    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+  .dropdown-item:hover {
+    background-color: #ddd; /* Change background on hover */
+    border-radius: 5px; /* Add rounded corners */
+}
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    width: 15rem;
+    height: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    transform: translate(-78%, 1%);
+    border-radius: 10px;
+    text-align: left;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {
+    background-color: #ddd;
+    border-radius: 10px;
+}
+
+.dropdown-options {
+    display: flex; /* Ensure it's displayed in a flex container */
+    flex-wrap: wrap; /* Allow items to wrap if necessary */
+    gap: 10px; /* Adjust spacing between icons */
+    padding: 10px; /* Add padding to the dropdown for better aesthetics */
+}
+
+.dropdown-item {
+    display: flex; /* Ensure each icon is a flex item */
+    align-items: center; /* Center items vertically */
+    padding: 5px; /* Add some padding around each icon */
+    cursor: pointer; /* Change cursor on hover for better UX */
+}
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  .show {display:block;}
+
+.emojiicon {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.habit-flex-container {
+    display: flex;
+}
+
+.dropdown-item {
+    padding: 20px; /* Adjust the value as needed */
+    text-align: center; /* Center the icon */
+}
+
+
+
+.settings {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    font-size: 1.25rem;
+    padding: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    justify-content: center;      
+    align-items: center;
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.fa-gear {
+    margin-right: 1rem;
+}
+
+
+.profile {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    font-size: 1.25rem;
+    padding: 0.8rem;
+    margin-left: 1rem;
+    margin-right: 1rem;     
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.vards{
+    font-size: 1.25rem;
+    display: flex;    
+    align-items: center; 
+    text-align: left;
+}
+
+.pfp {
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: blue;
+    margin-right: 0.5rem;
+    border-radius: 50%;
+}
+
+.quickacces {
+
+    height: 42.9rem;
+    margin-left: 1rem;
+    margin-right: 1rem; 
+    margin-top: 2rem;
+}
+
+.testquick {
+    height: 5rem;
+    background-color: #555;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+
+}
+
+.emojiiconquick {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 10px;
+    background-color: white;
+    margin-left: 1rem;
+}
+
+.namequicktimesquickbox {
+    margin-left: 1rem;
+    font-weight: bold;
+    width: 8.5rem;
+    text-align: left;
+}
+
+.settingsquick {
+    background-color: #fff;
+    margin-left: 1rem;
+    border-radius: 10px;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quickaccesnamehead {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: left;
+    border-bottom: 1px solid #000;
+}
+
+
+
+.removebtn1 {
+    font-family: "Inter", sans-serif;
+    text-align: left;
+    margin: 0.5rem ;
+}
+
+.addquickbtn {
+    font-family: "Inter", sans-serif;
+    text-align: left;
+    margin: 0.5rem ;
+}
+
+.edithabbut {
+    font-family: "Inter", sans-serif;
+    text-align: left;
+    margin: 0.5rem ;
+}
+
+
+.inter1 {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+  }
+
+.viewprogressbtn {
+    font-family: "Inter", sans-serif;
+    text-align: left;
+    margin: 0.5rem ;
+}
+
+.fa-calendar-days, .fa-pen, .fa-bookmark, .fa-trash, .fa-arrow-right {
+    margin-right: 0.5rem;
+}
+
+.skipprogress {
+    font-family: "Inter", sans-serif;
+    margin: 0.5rem;
+    text-align: left;
+}
+
+.hover-underline-animation {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    font-family: "Inter", sans-serif;
+    text-align: left;
+    margin: 0.5rem;
+}
+
+.hover-underline-animation::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: black; 
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+
+
+.hover-underline-animation:hover::after {
+    transform: scaleX(1); 
+    transform-origin: bottom left;
+}
+
+
+/* Basic styling for the edit popup */
+.editpopup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the popup */
+    background-color: #fff; /* White background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    width: 50rem; /* Set a width for the popup */
+    padding: 20px; /* Padding inside the popup */
+    z-index: 1000; /* Sit on top of the overlay */
+    display: none; /* Hidden by default */
+}
+
+
+
+.saveclosebtn {
+    display: flex;
+
+    justify-content: center;
+
+}
+
+
+.savebtn {
+    background-color: #4CC9FE;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    font-family: "Inter", sans-serif;
+    width: 12rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.savebtn:hover {
+    transform: scale(1.1); 
+}
+
+.editbtn:hover{
+    transform: scale(1.1); 
+}
+
+.editbtn {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    font-family: "Inter", sans-serif;
+    width: 12rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    transition: transform 0.3s ease;
+    cursor: pointer;
+
+}
+
+
+/* Show the popup when the 'show' class is added */
+.editpopup.show {
+    display: block; /* Show the popup */
+}
+
+/* Styling for the overlay */
+
+
+/* Styling for popup content */
+.popup-content {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+}
+
+/* Input field styling */
+input[type="text"],
+input[type="number"] {
+    padding: 10px; /* Padding inside input */
+    margin: 10px 0; /* Margin above and below input */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 4px; /* Rounded corners */
+    width: 100%; /* Full width */
+}
+
+/* Button styling */
+
+
+
+
+.dropbtn {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    background-color: #fff;
+    height: 4vh;
+    width: 2vw;
+    border-radius: 10px;
+    margin-left: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+
+.dropbtn:hover {
+    transform: scale(1.2); 
+}
+
+
+
+
+
+.pabeigts {
+    background-color: #fff;
+    height: 2vw;
+    width: 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    margin-left: 2rem;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    font-family: "Inter", sans-serif;
+}
+
+.pabeigts:hover {
+    transform: scale(1.2); 
+
+}
+
+
+
+
+.editSelectedIcon {
+    height: 2rem;
+    width: 2rem;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: solid 1px;
+    border-radius: 10px;
+}
+
+.div123 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-container {
+    position: relative;
+    width: 320px;
+    font-family: "Inter", sans-serif;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    
+}
+
+
+.search123 {
+    width: 100%; 
+    box-sizing: border-box;
+    border: 1px solid #ccc; 
+    border-radius: 20px;
+    font-size: 16px;
+    font-family: "Inter", sans-serif;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.search123:hover {
+    transform: scale(1.1); 
+}
+
+.popup {
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Inter", sans-serif;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    width: 9rem;
+    margin-left: 2rem;
+    transition: transform 0.3s ease;
+}
+
+
+.habitday   {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    height: 3rem;
+    width: 7rem;
+    font-family: "Inter", sans-serif;
+    display: flex;
+    border-radius: 10px;
+    justify-content: center;      
+    align-items: center;
+    margin-left: 2rem;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.habitday:hover {
+    transform: scale(1.1); 
+}
+
+
+
+
+.sorthabit {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    height: 3rem;
+    width: 7rem;
+    font-family: "Inter", sans-serif;
+    display: flex;
+    border-radius: 10px;
+    justify-content: center;      
+    align-items: center;
+    margin-left: 2rem;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    padding-left: 0.5rem;
+}
+
+.sorthabit:hover {
+    transform: scale(1.1); 
+}
+
+select {
+    border: none;  /* Remove border */
+    outline: none; /* Remove outline on focus */
+    background-color: transparent; /* Optional: make background transparent */
+}
+
+.fa-plus {
+    padding-right: 0.5rem;
+}
+
+.fa-calendar {
+    padding-right: 0.5rem;
+}
+
+.calendar1 {
+    position: absolute;
+    width: 25rem;
+    height: 25rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    transform: translate(-64%,57%);
+    border-radius: 10px;
+    z-index: 10;
+    background-color: #fff;
+    display: none;
+}
+
+
+
+.DIENAS {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 2px solid #ddd;
+}
+
+.DIENAS li {
+    padding: 5px;
+    background-color: #f0f0f0;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-rows: 50px;
+    gap: 10px;
+    text-align: center;
+    padding: 0.5rem;
+}
+
+.days div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.gadsmenesis {
+    text-align: left;
+    font-family: "Inter", sans-serif;
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    font-size: 1.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+
+#calendar1 {
+    display: none; /* Hide the calendar initially */
+    opacity: 0; /* Optional: for a fade-in effect */
+    transition: opacity 0.3s ease; /* Optional: smooth transition */
+}
+
+#calendar1.show {
+    display: block; /* Show the calendar when 'show' class is added */
+    opacity: 1; /* Optional: makes the calendar visible */
+}
