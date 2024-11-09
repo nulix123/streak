@@ -47,31 +47,6 @@
                 <div class="settingsquick"><i class="fa-solid fa-bars"></i></div>
 
             </div>
-
-            <div class="testquick">
-                <div class="emojiiconquick"></div>
-                <div class="namequicktimesquickbox">
-                <div class="namequick">Name</div>
-                <div class="timesquick">0/1</div>
-                </div>
-                <div class="pabeigtquick"><i class="fa-solid fa-check fa-test"></i></div>
-                <div class="settingsquick"><i class="fa-solid fa-bars"></i></div>
-
-            </div>
-
-
-            <div class="testquick">
-                <div class="emojiiconquick"></div>
-                <div class="namequicktimesquickbox">
-                <div class="namequick">Name</div>
-                <div class="timesquick">0/1</div>
-                </div>
-                <div class="pabeigtquick"><i class="fa-solid fa-check fa-test"></i></div>
-                <div class="settingsquick"><i class="fa-solid fa-bars"></i></div>
-
-            </div>
-
-
         </div>
 
 
@@ -152,9 +127,145 @@
 
 
     <div class="habitbox">
+        <div id="blurOverlay" class="blur-overlay"></div>
+        <div class="habitboxtoptext">
 
-        <div class="habitbox1">
-            
+            <div class="popup" onclick="myFunction()">
+            <i class="fa-solid fa-plus"></i>
+            <div class="">Jauns Ieradums</div>
+            <span class="popuptext" id="mypopup">
+                <div class="jaunsieradums">Jauns Ieradums
+                <button class="close-btn" onclick="closePopup(event)">×</button></div>
+
+                <div class="nosaukums">Nosaukums</div>
+
+                <div class="searchplusicon">
+                <input type="text" id="input-box" name="search" class="search" placeholder="">
+                <div class="custom-dropdown" onclick="toggleDropdown()">
+                    <div class="selected-option" id="selectedIcon"></div>
+                    <div class="dropdown-options" id="iconDropdown" style="display: none;">
+                        
+        
+        
+        
+                        <table class="table1">
+                        <tr>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-bicycle')"><i class="fa-solid fa-bicycle"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-medal')"><i class="fa-solid fa-medal"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-dumbbell')"><i class="fa-solid fa-dumbbell"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-volleyball')"><i class="fa-solid fa-volleyball"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-table-tennis-paddle-ball')"><i class="fa-solid fa-table-tennis-paddle-ball"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-eraser')"><i class="fa-solid fa-eraser"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-phone')"><i class="fa-solid fa-phone"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-puzzle-piece')"><i class="fa-solid fa-puzzle-piece"></i></div></td>
+                        </tr>
+        
+                        <tr>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-person-walking')"><i class="fa-solid fa-person-walking"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-person-swimming')"><i class="fa-solid fa-person-swimming"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-person-snowboarding')"><i class="fa-solid fa-person-snowboarding"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-person-skiing-nordic')"><i class="fa-solid fa-person-skiing-nordic"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-person-skating')"><i class="fa-solid fa-person-skating"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-bomb')"><i class="fa-solid fa-bomb"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-truck-fast')"><i class="fa-solid fa-truck-fast"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-file')"><i class="fa-solid fa-file"></i></div></td>
+                        </tr>
+        
+                        <tr>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-cart-shopping')"><i class="fa-solid fa-cart-shopping"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-umbrella')"><i class="fa-solid fa-umbrella"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('')"></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-person-running')"><i class="fa-solid fa-person-running"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-person-hiking')"><i class="fa-solid fa-person-hiking"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-hockey-puck')"><i class="fa-solid fa-hockey-puck"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-futbol')"><i class="fa-solid fa-futbol"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-football')"><i class="fa-solid fa-football"></i></div></td>
+                        </tr>
+        
+                        <tr>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-inbox')"><i class="fa-solid fa-inbox"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('')"></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-video')"><i class="fa-solid fa-video"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-plus')"><i class="fa-solid fa-plus"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-minus')"><i class="fa-solid fa-minus"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-bowling-ball')"><i class="fa-solid fa-bowling-ball"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-basketball')"><i class="fa-solid fa-basketball"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-baseball-bat-ball')"><i class="fa-solid fa-baseball-bat-ball"></i></div></td>
+                        </tr>
+        
+                        <tr>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-plane')"><i class="fa-solid fa-plane"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-spider')"><i class="fa-solid fa-spider"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-anchor')"><i class="fa-solid fa-anchor"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-music')"><i class="fa-solid fa-music"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-school')"><i class="fa-solid fa-school"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-user-graduate')"><i class="fa-solid fa-user-graduate"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-masks-theater')"><i class="fa-solid fa-masks-theater"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-laptop-code')"><i class="fa-solid fa-laptop-code"></i></div></td>
+                        </tr>
+        
+                        <tr>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-wifi')"><i class="fa-solid fa-wifi"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-cable-car')"><i class="fa-solid fa-cable-car"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-clock')"><i class="fa-solid fa-clock"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-microscope')"><i class="fa-solid fa-microscope"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('')"></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-credit-card')"><i class="fa-solid fa-credit-card"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-newspaper')"><i class="fa-solid fa-newspaper"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-store')"><i class="fa-solid fa-store"></i></div></td>
+                        </tr>
+                        
+                        <tr>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-thumbs-up')"><i class="fa-solid fa-thumbs-up"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-thumbs-down')"><i class="fa-solid fa-thumbs-down"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-tags')"><i class="fa-solid fa-tags"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-server')"><i class="fa-solid fa-server"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-desktop')"><i class="fa-solid fa-desktop"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-ship')"><i class="fa-solid fa-ship"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-train')"><i class="fa-solid fa-train"></i></div></td>
+                            <td><div class="dropdown-item" onclick="selectIcon('fa-trophy')"><i class="fa-solid fa-trophy"></i></div></td>
+                        </tr>
+                        </table>
+        
+                        
+                        
+                        
+                    </div>
+
+                </div>
+                </div>
+
+
+                <div class="merkis">Mērķis</div>
+
+
+                <div class="merkisinput">
+                <input type="number" value="1" min="1" max="100" name="search1" class="search1" id="targetTimesInput" onKeyDown="return false">
+                <select name="laiks1" class="laiks2">
+                <option value="Reizes">Reizi</option>
+                <option value="Minūtes">Minūtes</option>
+                </select>
+                <select name="kad" class="kad123">
+                <option value="dienu">Dienā</option>
+                <option value="nedelu">Nedēļā</option>
+                <option value="mēnesi">Mēnesī</option>
+                </select>
+                </div>
+
+
+                <div class="pabeigtbtn" onclick="addTask()" onclick="completeTaskAndClosePopup()">Pievienot</div>
+            </span>
+            </div>
+
+
+            <select class="sorthabit">
+                <option>A -> Z</option>
+                <option>Z -> A</option>
+                <option>Jaunākais -> Vecākais</option>
+                <option>Vecākais -> Jaunākais</option>
+            </select>
+
+
             <div class="habitday" onclick="calendarShow()"><i class="fa-solid fa-calendar"></i>Šodien</div>
 
             <div class="calendar1" id="calendar1">
@@ -209,384 +320,17 @@
                     <div>3</div>
                 </div>
             </div>
-            
 
 
+            <div class="searchbar"></div>
 
 
+        </div>
 
 
-
-
-
-
-            <select class="sorthabit">
-                <option>A -> Z</option>
-                <option>Z -> A</option>
-                <option>Jaunākais -> Vecākais</option>
-                <option>Vecākais -> Jaunākais</option>
-            </select>
-            
-
-            
-
-
-
-
-
-
-
-
-            <div class="editpopup" id="editpopup">
-                <div class="popup-content">
-                    <h2>Rediģēt Ieradumu</h2>
-                    <input type="text" id="editHabitInput" placeholder="Habit Name">
-                    <input type="number" id="editTargetTimesInput" placeholder="Target Times" min="1">
-                    <div id="iconSelection">
-                        <p>Select an icon:</p>
-                        <div id="editIconDropdown">
-                            <table class="table1">
-                                <tr>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-bicycle', true)"><i class="fa-solid fa-bicycle"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-medal', true)"><i class="fa-solid fa-medal"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-dumbbell', true)"><i class="fa-solid fa-dumbbell"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-volleyball', true)"><i class="fa-solid fa-volleyball"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-table-tennis-paddle-ball', true)"><i class="fa-solid fa-table-tennis-paddle-ball"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-eraser', true)"><i class="fa-solid fa-eraser"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-phone', true)"><i class="fa-solid fa-phone"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-puzzle-piece', true)"><i class="fa-solid fa-puzzle-piece"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-thumbs-up', true)"><i class="fa-solid fa-thumbs-up"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-thumbs-down', true)"><i class="fa-solid fa-thumbs-down"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-tags', true)"><i class="fa-solid fa-tags"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-server', true)"><i class="fa-solid fa-server"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-desktop', true)"><i class="fa-solid fa-desktop"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-ship', true)"><i class="fa-solid fa-ship"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-train', true)"><i class="fa-solid fa-train"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-trophy', true)"><i class="fa-solid fa-trophy"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-newspaper', true)"><i class="fa-solid fa-newspaper"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-store', true)"><i class="fa-solid fa-store"></i></div></td>
-                                </tr>
-                                <tr>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-person-walking', true)"><i class="fa-solid fa-person-walking"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-person-swimming', true)"><i class="fa-solid fa-person-swimming"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-person-snowboarding', true)"><i class="fa-solid fa-person-snowboarding"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-person-skiing-nordic', true)"><i class="fa-solid fa-person-skiing-nordic"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-person-skating', true)"><i class="fa-solid fa-person-skating"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-bomb', true)"><i class="fa-solid fa-bomb"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-truck-fast', true)"><i class="fa-solid fa-truck-fast"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-file', true)"><i class="fa-solid fa-file"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-wifi', true)"><i class="fa-solid fa-wifi"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-cable-car', true)"><i class="fa-solid fa-cable-car"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-inbox', true)"><i class="fa-solid fa-inbox"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-video', true)"><i class="fa-solid fa-video"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-plus', true)"><i class="fa-solid fa-plus"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-minus', true)"><i class="fa-solid fa-minus"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-bowling-ball', true)"><i class="fa-solid fa-bowling-ball"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-basketball', true)"><i class="fa-solid fa-basketball"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-baseball-bat-ball', true)"><i class="fa-solid fa-baseball-bat-ball"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-laptop-code', true)"><i class="fa-solid fa-laptop-code"></i></div></td>
-                                </tr>
-                                <tr>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-cart-shopping', true)"><i class="fa-solid fa-cart-shopping"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-umbrella', true)"><i class="fa-solid fa-umbrella"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-person-running', true)"><i class="fa-solid fa-person-running"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-person-hiking', true)"><i class="fa-solid fa-person-hiking"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-hockey-puck', true)"><i class="fa-solid fa-hockey-puck"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-futbol', true)"><i class="fa-solid fa-futbol"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-football', true)"><i class="fa-solid fa-football"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-microscope', true)"><i class="fa-solid fa-microscope"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-credit-card', true)"><i class="fa-solid fa-credit-card"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-plane', true)"><i class="fa-solid fa-plane"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-spider', true)"><i class="fa-solid fa-spider"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-anchor', true)"><i class="fa-solid fa-anchor"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-music', true)"><i class="fa-solid fa-music"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-school', true)"><i class="fa-solid fa-school"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-user-graduate', true)"><i class="fa-solid fa-user-graduate"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-masks-theater', true)"><i class="fa-solid fa-masks-theater"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-laptop-code', true)"><i class="fa-solid fa-laptop-code"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-clock', true)"><i class="fa-solid fa-clock"></i></div></td>
-                                </tr>
-                                <tr>
-                                    
-                                </tr>
-                                <tr>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-plane', true)"><i class="fa-solid fa-plane"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-spider', true)"><i class="fa-solid fa-spider"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-anchor', true)"><i class="fa-solid fa-anchor"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-music', true)"><i class="fa-solid fa-music"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-school', true)"><i class="fa-solid fa-school"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-user-graduate', true)"><i class="fa-solid fa-user-graduate"></i></div></td>
-                                    <td><div class="dropdown-item" onclick="selectIcon('fa-masks-theater', true)"><i class="fa-solid fa-masks-theater"></i></div></td>  
-                                </tr>
-                                
-                            </table>
-                        </div>
-                        <div class="div123">
-                        <div id="editSelectedIcon" class="editSelectedIcon"></div></div>
-                        <input type="hidden" id="editIconInput">
-                    </div>
-
-                    <div class="saveclosebtn">
-                    <div id="saveEditButton" class="savebtn">Saglabāt</div>
-                    <div id="closeEditButton" class="editbtn">Aizvērt</div>
-                </div>
-                </div>
-            </div>
-            
-            
-            
-
-
-
-
-
-
-
-
-            <div class="popup" onclick="myFunction()"><i class="fa-solid fa-plus"></i>
-                <div class="test123">
-                New Habit</div>
-                <span class="popuptext" id="mypopup">
-                    <button class="close-btn" onclick="closePopup(event)">×</button>
-                    
-                    <div class="linija">
-                    <h1>Jauns Ieradums</h1>
-
-                    </div>
-
-                    <div class="linija2">
-                    
-                    <p>Nosaukums</p>
-                    <div class="linija1e">
-                    <input type="text" id="input-box" name="search" class="search" placeholder="">
-                    
-
-
-
-                    <div class="custom-dropdown" onclick="toggleDropdown()">
-                        <div class="selected-option" id="selectedIcon"></div>
-                        <div class="dropdown-options" id="iconDropdown" style="display: none;">
-                            
-    
-
-
-                            <table class="table1">
-                            <tr>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-bicycle')"><i class="fa-solid fa-bicycle"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-medal')"><i class="fa-solid fa-medal"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-dumbbell')"><i class="fa-solid fa-dumbbell"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-volleyball')"><i class="fa-solid fa-volleyball"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-table-tennis-paddle-ball')"><i class="fa-solid fa-table-tennis-paddle-ball"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-eraser')"><i class="fa-solid fa-eraser"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-phone')"><i class="fa-solid fa-phone"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-puzzle-piece')"><i class="fa-solid fa-puzzle-piece"></i></div></td>
-                            </tr>
-
-                            <tr>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-person-walking')"><i class="fa-solid fa-person-walking"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-person-swimming')"><i class="fa-solid fa-person-swimming"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-person-snowboarding')"><i class="fa-solid fa-person-snowboarding"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-person-skiing-nordic')"><i class="fa-solid fa-person-skiing-nordic"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-person-skating')"><i class="fa-solid fa-person-skating"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-bomb')"><i class="fa-solid fa-bomb"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-truck-fast')"><i class="fa-solid fa-truck-fast"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-file')"><i class="fa-solid fa-file"></i></div></td>
-                            </tr>
-
-                            <tr>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-cart-shopping')"><i class="fa-solid fa-cart-shopping"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-umbrella')"><i class="fa-solid fa-umbrella"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('')"></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-person-running')"><i class="fa-solid fa-person-running"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-person-hiking')"><i class="fa-solid fa-person-hiking"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-hockey-puck')"><i class="fa-solid fa-hockey-puck"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-futbol')"><i class="fa-solid fa-futbol"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-football')"><i class="fa-solid fa-football"></i></div></td>
-                            </tr>
-
-                            <tr>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-inbox')"><i class="fa-solid fa-inbox"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('')"></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-video')"><i class="fa-solid fa-video"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-plus')"><i class="fa-solid fa-plus"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-minus')"><i class="fa-solid fa-minus"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-bowling-ball')"><i class="fa-solid fa-bowling-ball"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-basketball')"><i class="fa-solid fa-basketball"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-baseball-bat-ball')"><i class="fa-solid fa-baseball-bat-ball"></i></div></td>
-                            </tr>
-
-                            <tr>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-plane')"><i class="fa-solid fa-plane"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-spider')"><i class="fa-solid fa-spider"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-anchor')"><i class="fa-solid fa-anchor"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-music')"><i class="fa-solid fa-music"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-school')"><i class="fa-solid fa-school"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-user-graduate')"><i class="fa-solid fa-user-graduate"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-masks-theater')"><i class="fa-solid fa-masks-theater"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-laptop-code')"><i class="fa-solid fa-laptop-code"></i></div></td>
-                            </tr>
-
-                            <tr>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-wifi')"><i class="fa-solid fa-wifi"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-cable-car')"><i class="fa-solid fa-cable-car"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-clock')"><i class="fa-solid fa-clock"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-microscope')"><i class="fa-solid fa-microscope"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('')"></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-credit-card')"><i class="fa-solid fa-credit-card"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-newspaper')"><i class="fa-solid fa-newspaper"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-store')"><i class="fa-solid fa-store"></i></div></td>
-                            </tr>
-                            
-                            <tr>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-thumbs-up')"><i class="fa-solid fa-thumbs-up"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-thumbs-down')"><i class="fa-solid fa-thumbs-down"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-tags')"><i class="fa-solid fa-tags"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-server')"><i class="fa-solid fa-server"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-desktop')"><i class="fa-solid fa-desktop"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-ship')"><i class="fa-solid fa-ship"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-train')"><i class="fa-solid fa-train"></i></div></td>
-                                <td><div class="dropdown-item" onclick="selectIcon('fa-trophy')"><i class="fa-solid fa-trophy"></i></div></td>
-                            </tr>
-                            </table>
-
-                            
-                            
-                            
-                        </div>
-                    </div>
-                        </div>
-                    </div>
-
-                    <div class="linija3">
-                    
-                    <p class="abc123">Mērķis</p>
-
-                    <div class="linija3x">
-                    <input type="number" value="1" min="1" max="100" name="search1" class="search1" id="targetTimesInput" onKeyDown="return false">
-                
-                    <select name="laiks1" class="laiks2">
-                        <option value="Reizes">Reizaewggawi</option>
-                        <option value="Minūtes">Minūtes</option>
-                    </select>
-                    <select name="kad" class="kad123">
-                        <option value="dienu">Dienā</option>
-                        <option value="nedelu">Nedēļā</option>
-                        <option value="mēnesi">Mēnesī</option>
-                    </select>
-                   
-    
-                    </div>
-                    </div>
-
-                    <div class="linija4">
-                        <div class="linija4x">
-                    <p>kad</p> 
-                     <p>Sākums</p>
-                    </div>
-                    <div class="linija4xx">
-                    
-                        
-                        <div class="container">
-                            <p style="margin: 5px;">Custom multi-select combobox</p>
-                            <div class="custom-combobox-container">
-                                <div class="custom-combobox" onclick="showOptions(this)">
-                                    <input type="text" id="inputCheckbox" readonly>
-                                    <img src="./arrow.png">
-                                </div>
-                                <div class="options-container" id="divOptions" onmouseleave="hideOptions(this)">
-                                    <label for="one"> <input type="checkbox" id="one" value="one"> one </label>
-                                    <label for="two"> <input type="checkbox" id="two" value="two"> two </label>
-                                    <label for="three"> <input type="checkbox" id="three" value="three"> three </label>
-                                    <label for="four"> <input type="checkbox" id="four" value="four"> four </label>
-                                    <label for="five"> <input type="checkbox" id="five" value="five"> five </label>
-                                    <label for="five"> <input type="checkbox" id="six" value="six"> six </label>
-                                </div>
-                            </div>
-                        </div>
-                          
-                        
-
-                    <script>
-                        
-                    </script>
-                    
-                    
-                        <input type="date">
-                    </div>
-                    </div>
-
-                    <div class="linija5">
-                    <p>Tavi peiraksti</p>
-                    <input type="text">
-                
-                    </div>
-
-                    <div class="6linija">
-                        <button onclick="addTask()" onclick="completeTaskAndClosePopup()">Pabeigt</button>
-
-                    <div class="cancel">Cancel (placeholder x)</div>
-                    
-
-                    </div>
-                    
-
-                </span>
-            </div>
-            <div id="blurOverlay" class="blur-overlay"></div>
-            
-
-
-            <div class="search-container">
-                <input type="text" placeholder="Meklēt" class="search123">
-            </div>
-            
-
-            
-
-            </div>
-            
-            
-            <ul id="list-container">
-            <div class="habits">
-                <div class="testhabit">
-                    <div class="emojiicon"></div>
-                    <div class="habitinfo">
-                        
-                        <div class="habitname">HAWEH</div>
-                        <div class="habitbox2">
-                        <div class="habittimes">0/1</div>
-                        <div class="habitkad">Reizi</div>
-                    </div>
-                    </div>
-                    <div class="pabeigts">
-                        <i class="fa-solid fa-check"></i>
-                        <div class="pabeigt123">Pabeigt</div>
-                    </div>
-                    <button onclick="myFunction2()" class="dropbtn">
-                        <i class="fa-solid fa-bars" ></i>
-                        
-                    </button>
-                    <div class="dropdown">
-                        <button class="dropbtn" onclick="toggleDropdown()">Dropdown</button>
-                        <div class="dropdown-content">
-                            <div class="removebtn1">Remove Habit</div>
-                            <div class="hover-underline-animation">Add to Quick Access</div>
-                            <div class="viewprogressbtn">View Progress</div>
-                            <div class="skipprogress">Skip</div>
-                        </div>
-                    </div>
-                    
-
-                    </div>
-
-
-                </div>
-
-
-            </div>
-    
-    </ul>
-
+        <div class="testa">
+        <ul id="list-container"></ul></div>
+    </div>
 
 </div>
 
