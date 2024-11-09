@@ -238,43 +238,79 @@ function addHabitToUI(habitText, targetTimes, iconHTML, laiksText) {
     addQuickAccessButton.innerHTML = '<i class="fa-solid fa-bookmark"></i> Pievienot Ātrai Piekļuvei';
     addQuickAccessButton.onclick = function() {
         alert("Habit added to quick access!");
+
+        let quickDiv = document.createElement("div");
+        quickDiv.className = "testquick";
+
+
+        let emojiquickDiv = document.createElement("div");
+        emojiquickDiv.className = "emojiiconquick";
+        emojiquickDiv.innerHTML = iconHTML;
+        quickDiv.appendChild(emojiquickDiv);
+
+
+        let quickNameDiv = document.createElement("div");
+        quickNameDiv.className = "namequick";
+        quickNameDiv.textContent = habitText;
+        quickDiv.appendChild(quickNameDiv);
+        quickNameDiv.style.fontFamily = '"Inter", sans-serif';
+
+        let pabeigtsquickDiv = document.createElement("div");
+        pabeigtsquickDiv.className = "pabeigtquick";
+        pabeigtsquickDiv.innerHTML = '<i class="fa-solid fa-check fa-check2"></i>';
+        quickDiv.appendChild(pabeigtsquickDiv);
+
+        // Settings button in quick access
+        let settingsquickDiv = document.createElement("div");
+        settingsquickDiv.className = "settingsquick";
+        settingsquickDiv.innerHTML = '<i class="fa-solid fa-bars"></i>';
+        quickDiv.appendChild(settingsquickDiv);
+
+
+
+        document.querySelector(".quickacces").appendChild(quickDiv);
     };
 
-    let editHabitButton = document.createElement("div");
-    editHabitButton.className = "edithabbut hover-underline-animation";
-    editHabitButton.innerHTML = '<i class="fa-solid fa-pen"></i> Rediģēt Ieradumu';
 
-    // Edit button click handler
-    editHabitButton.onclick = function() {
-        var popup2 = document.getElementById("editpopup");
-        var overlay = document.getElementById("blurOverlay");
-    
-        // Set the current habit name and icon in the edit popup fields
-        document.getElementById("editHabitInput").value = habitNameDiv.textContent;
-        document.getElementById("editTargetTimesInput").value = targetTimes;
-        document.getElementById("editSelectedIcon").innerHTML = emojiIconDiv.innerHTML; // Show current icon
-    
-        popup2.classList.add("show");
-        overlay.style.display = "block";
-    
-        document.getElementById("saveEditButton").onclick = function() {
-            // Update the habit name and target times based on edit input
-            habitNameDiv.textContent = document.getElementById("editHabitInput").value;
-            habitTimesDiv.textContent = document.getElementById("editTargetTimesInput").value;
-    
-            // Replace the habit's icon with the selected icon from the edit popup
-            emojiIconDiv.innerHTML = document.getElementById("editIconInput").value;
-    
-            // Close the popup
-            popup2.classList.remove("show");
-            overlay.style.display = "none";
+    // Assuming you want to add this button somewhere on the page
+    document.body.appendChild(addQuickAccessButton); // Or any other container where you want the button to appear
+
+
+        let editHabitButton = document.createElement("div");
+        editHabitButton.className = "edithabbut hover-underline-animation";
+        editHabitButton.innerHTML = '<i class="fa-solid fa-pen"></i> Rediģēt Ieradumu';
+
+        // Edit button click handler
+        editHabitButton.onclick = function() {
+            var popup2 = document.getElementById("editpopup");
+            var overlay = document.getElementById("blurOverlay");
+        
+            // Set the current habit name and icon in the edit popup fields
+            document.getElementById("editHabitInput").value = habitNameDiv.textContent;
+            document.getElementById("editTargetTimesInput").value = targetTimes;
+            document.getElementById("editSelectedIcon").innerHTML = emojiIconDiv.innerHTML; // Show current icon
+        
+            popup2.classList.add("show");
+            overlay.style.display = "block";
+        
+            document.getElementById("saveEditButton").onclick = function() {
+                // Update the habit name and target times based on edit input
+                habitNameDiv.textContent = document.getElementById("editHabitInput").value;
+                habitTimesDiv.textContent = document.getElementById("editTargetTimesInput").value;
+        
+                // Replace the habit's icon with the selected icon from the edit popup
+                emojiIconDiv.innerHTML = document.getElementById("editIconInput").value;
+        
+                // Close the popup
+                popup2.classList.remove("show");
+                overlay.style.display = "none";
+            };
+        
+            document.getElementById("closeEditButton").onclick = function() {
+                popup2.classList.remove("show");
+                overlay.style.display = "none";
+            };
         };
-    
-        document.getElementById("closeEditButton").onclick = function() {
-            popup2.classList.remove("show");
-            overlay.style.display = "none";
-        };
-    };
     
 
     let viewProgressButton = document.createElement("div");
