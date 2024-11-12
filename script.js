@@ -5,63 +5,10 @@ const epopup = document.getElementById("editpopup")
 
 
 
-function getTodayDate() {
-    const today = new Date();
-    return today.toISOString().split('T')[0]; // Extract the date part
-}
 
-// Function to initialize or update the streak
-function updateStreak() {
-    const lastLogin = localStorage.getItem('lastLoginDate');
-    const today = getTodayDate();
-    
-    if (lastLogin === today) {
-        alert("You already completed today's task!");
-        return;
-    }
-
-    let streak = parseInt(localStorage.getItem('streak')) || 0;
-
-    if (lastLogin) {
-        const lastLoginDate = new Date(lastLogin);
-        const differenceInDays = Math.floor((new Date(today) - lastLoginDate) / (1000 * 60 * 60 * 24));
-        
-        if (differenceInDays === 1) {
-            // Increment streak if it's the next day
-            streak += 1;
-        } else if (differenceInDays > 1) {
-            // Reset streak if more than one day has passed
-            streak = 1;
-        }
-    } else {
-        // First time login
-        streak = 1;
-    }
-
-    // Update streak in localStorage
-    localStorage.setItem('streak', streak);
-    localStorage.setItem('lastLoginDate', today);
-
-    // Update the display
-    displayStreak();
-    alert(`Streak updated! Current streak: ${streak} days.`);
-}
-
-// Function to display the current streak on page load
-function displayStreak() {
-    const streak = localStorage.getItem('streak') || 0;
-    
-    // Add Font Awesome icon with class "fa-fire"
-    document.getElementById('streakDisplay').innerHTML = `
-        <i class="fas fa-fire"></i> 
-        <span class= "streaktext">Current streak <br></span> 
-        <span class ="streakdays">${streak} 
-        days</span>
-    `;
-}
 
 // Call the function to display streak on page load
-window.onload = displayStreak;
+
 
 function myFunction(event) {
     // Toggle popup visibility
@@ -150,7 +97,7 @@ function hideOptions(e) {
 
 window.onload = function() {
     loadHabits();
-    displayStreak();
+    loadQuickAccess();
 };
 
 // Function to add a task
@@ -290,43 +237,45 @@ function addHabitToUI(habitText, targetTimes, iconHTML, laiksText) {
     addQuickAccessButton.className = "hover-underline-animation";
     addQuickAccessButton.innerHTML = '<i class="fa-solid fa-bookmark"></i> Pievienot Ātrai Piekļuvei';
     addQuickAccessButton.onclick = function() {
-        alert("Habit added to quick access!");
+        addHabitToQuickAccess(habitText, iconHTML);
     };
+
+
+    // Assuming you want to add this button somewhere on the page
+    document.body.appendChild(addQuickAccessButton); // Or any other container where you want the button to appear
+
 
     let editHabitButton = document.createElement("div");
     editHabitButton.className = "edithabbut hover-underline-animation";
     editHabitButton.innerHTML = '<i class="fa-solid fa-pen"></i> Rediģēt Ieradumu';
 
-    // Edit button click handler
     editHabitButton.onclick = function() {
-        var popup2 = document.getElementById("editpopup");
-        var overlay = document.getElementById("blurOverlay");
-    
-        // Set the current habit name and icon in the edit popup fields
-        document.getElementById("editHabitInput").value = habitNameDiv.textContent;
-        document.getElementById("editTargetTimesInput").value = targetTimes;
-        document.getElementById("editSelectedIcon").innerHTML = emojiIconDiv.innerHTML; // Show current icon
-    
-        popup2.classList.add("show");
-        overlay.style.display = "block";
-    
-        document.getElementById("saveEditButton").onclick = function() {
-            // Update the habit name and target times based on edit input
-            habitNameDiv.textContent = document.getElementById("editHabitInput").value;
-            habitTimesDiv.textContent = document.getElementById("editTargetTimesInput").value;
-    
-            // Replace the habit's icon with the selected icon from the edit popup
-            emojiIconDiv.innerHTML = document.getElementById("editIconInput").value;
-    
-            // Close the popup
-            popup2.classList.remove("show");
-            overlay.style.display = "none";
-        };
-    
-        document.getElementById("closeEditButton").onclick = function() {
-            popup2.classList.remove("show");
-            overlay.style.display = "none";
-        };
+     var popup2 = document.getElementById("editpopup");
+    var overlay = document.getElementById("blurOverlay");
+        
+    document.getElementById("editHabitInput").value = habitNameDiv.textContent;
+    document.getElementById("editTargetTimesInput").value = targetTimes;
+    document.getElementById("editSelectedIcon").innerHTML = emojiIconDiv.innerHTML;
+        
+    popup2.classList.add("show");
+    overlay.style.display = "block";
+        
+    document.getElementById("saveEditButton").onclick = function() {
+        habitNameDiv.textContent = document.getElementById("editHabitInput").value;
+        habitTimesDiv.textContent = document.getElementById("editTargetTimesInput").value;
+        
+                // Replace the habit's icon with the selected icon from the edit popup
+                emojiIconDiv.innerHTML = document.getElementById("editIconInput").value;
+        
+                // Close the popup
+                popup2.classList.remove("show");
+                overlay.style.display = "none";
+            };
+        
+            document.getElementById("closeEditButton").onclick = function() {
+                popup2.classList.remove("show");
+                overlay.style.display = "none";
+            };
     };
     
 
@@ -362,6 +311,126 @@ function addHabitToUI(habitText, targetTimes, iconHTML, laiksText) {
 
 
 
+
+
+function addHabitToQuickAccess(habitText, iconHTML) {
+    let quickhabits = JSON.parse(localStorage.getItem("quickHabits")) || [];
+    if (!quickhabits.some(habit => habit.text === habitText && habit.icon === iconHTML)) {
+
+        let quickDiv = document.createElement("div");
+        quickDiv.className = "testquick";
+
+        let emojiquickDiv = document.createElement("div");
+        emojiquickDiv.className = "emojiiconquick";
+        emojiquickDiv.innerHTML = iconHTML;
+        quickDiv.appendChild(emojiquickDiv);
+
+        let quickNameDiv = document.createElement("div");
+        quickNameDiv.className = "namequick";
+        quickNameDiv.textContent = habitText;
+        quickDiv.appendChild(quickNameDiv);
+        quickNameDiv.style.fontFamily = '"Inter", sans-serif';
+
+        let pabeigtsquickDiv = document.createElement("div");
+        pabeigtsquickDiv.className = "pabeigtquick";
+        pabeigtsquickDiv.innerHTML = '<i class="fa-solid fa-check fa-check2"></i>';
+        quickDiv.appendChild(pabeigtsquickDiv);
+
+        let dropdownDiv = document.createElement("div");
+        dropdownDiv.className = "dropdown1";
+
+        let settingsquickDiv = document.createElement("div");
+        settingsquickDiv.className = "settingsquick";
+        settingSquickDIV.onclick = function() {
+            dropdownContent.classList.toggle("show");
+        };
+        settingsquickDiv.innerHTML = '<i class="fa-solid fa-bars"></i>';
+        quickDiv.appendChild(settingsquickDiv);
+
+
+
+
+
+
+
+        
+
+        document.querySelector(".quickacces").appendChild(quickDiv);
+
+        quickhabits.push({ text: habitText, icon: iconHTML });
+        localStorage.setItem("quickHabits", JSON.stringify(quickhabits));
+    }
+}
+
+
+
+
+function loadQuickAccess() {
+
+    let quickhabits = JSON.parse(localStorage.getItem("quickHabits")) || [];
+    
+    const quickAccessContainer = document.querySelector(".quickacces");
+
+    quickAccessContainer.querySelectorAll(".testquick").forEach(item => item.remove());
+
+    quickhabits.forEach(habit => {
+        let quickDiv = document.createElement("div");
+        quickDiv.className = "testquick";
+
+        let emojiquickDiv = document.createElement("div");
+        emojiquickDiv.className = "emojiiconquick";
+        emojiquickDiv.innerHTML = habit.icon;
+        quickDiv.appendChild(emojiquickDiv);
+
+        let quickNameDiv = document.createElement("div");
+        quickNameDiv.className = "namequick";
+        quickNameDiv.textContent = habit.text;
+        quickDiv.appendChild(quickNameDiv);
+        quickNameDiv.style.fontFamily = '"Inter", sans-serif';
+
+        let pabeigtsquickDiv = document.createElement("div");
+        pabeigtsquickDiv.className = "pabeigtquick";
+        pabeigtsquickDiv.innerHTML = '<i class="fa-solid fa-check fa-check2"></i>';
+        quickDiv.appendChild(pabeigtsquickDiv);
+
+        let settingsquickDiv = document.createElement("div");
+        settingsquickDiv.className = "settingsquick";
+        settingsquickDiv.innerHTML = '<i class="fa-solid fa-bars"></i>';
+        quickDiv.appendChild(settingsquickDiv);
+
+        quickAccessContainer.appendChild(quickDiv);
+
+
+    });
+}
+
+
+function clearAllQuickAccess() {
+    const quickAccessContainer = document.querySelector(".quickacces");
+    quickAccessContainer.innerHTML = ""; // Clears the quick access section in the DOM
+
+    // Clear from localStorage
+    localStorage.removeItem("quickHabits");
+    alert("All quick access habits have been removed.");
+}
+
+
+
+function saveHabitToLocalStorage(habitText, targetTimes, iconHTML, laiksText) {
+    // Save habit to main habits list
+    let habits = JSON.parse(localStorage.getItem("habits")) || [];
+    habits.push({ text: habitText, target: targetTimes, icon: iconHTML, laiks: laiksText });
+    localStorage.setItem("habits", JSON.stringify(habits));
+}
+
+// Save habit specifically to quick access
+function saveToQuickAccess(habitText, iconHTML) {
+    let quickhabits = JSON.parse(localStorage.getItem("quickHabits")) || [];
+    quickhabits.push({ text: habitText, icon: iconHTML });
+    localStorage.setItem("quickHabits", JSON.stringify(quickhabits));
+}
+
+
 function selectIcon(iconClass) {
     const selectedIconDiv = document.getElementById("editSelectedIcon");
     selectedIconDiv.innerHTML = `<i class="fa-solid ${iconClass}"></i>`;
@@ -393,6 +462,10 @@ function saveHabitToLocalStorage(habitText, targetTimes, iconHTML, laiksText) {
     let habits = JSON.parse(localStorage.getItem("habits")) || [];
     habits.push({ text: habitText, target: targetTimes, icon: iconHTML, laiks: laiksText });
     localStorage.setItem("habits", JSON.stringify(habits));
+
+    let quickhabits = JSON.parse(localStorage.getItem("quickHabits")) || [];
+    quickhabits.push({ text: habitText, target: targetTimes, icon: iconHTML, laiks: laiksText });
+    localStorage.setItem("quickHabits", JSON.stringify(quickhabits));
 }
 
 
@@ -420,6 +493,11 @@ window.onclick = function(event) {
 function loadHabits() {
     let habits = JSON.parse(localStorage.getItem("habits")) || [];
     habits.forEach(habit => addHabitToUI(habit.text, habit.target, habit.icon, habit.laiks));
+
+    let quickhabits = JSON.parse(localStorage.getItem("quickHabits")) || [];
+    quickhabits.forEach(habit => addHabitToQuickAccess(habit.text, habit.icon));
+
+
 }
 function toggleDropdown() {
     const dropdown = document.getElementById("iconDropdown");
